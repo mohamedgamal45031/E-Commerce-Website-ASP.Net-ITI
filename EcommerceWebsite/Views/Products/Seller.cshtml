@@ -1,0 +1,695 @@
+﻿
+@{
+    ViewData["Title"] = "Seller";
+}
+<div style="display:flex;justify-content:center;">
+	<a asp-controller="Products" asp-action="Create"  class="btn" onmouseout="this.style.backgroundColor='#333333';this.style.border='1px solid #333333 '" onmouseover="this.style.backgroundColor='#6fcfb8';this.style.border='1px solid #6fcfb8 ';" style="background-color:#333333;border:1px solid #333333">
+		Add Product
+	</a>
+</div>
+<div class="breadcrumbs">
+	<div class="container">
+		<ul>
+			<li><a href="../index.html">Home</a></li>
+
+
+
+			<li><a href="index.html">Collections</a></li>
+			<li><span>Teens clothing</span></li>
+
+
+		</ul>
+	</div>
+</div>
+
+
+<div class="container">
+		<div class="row">
+
+			<div class="main_content sidebar_on col-sm-9  col-sm-push-3">
+				<div id="shopify-section-template-collection"
+					 class="shopify-section section_template section_template__collection">
+					<h1 class="page_heading">Teens clothing</h1>
+					<div class="product_options">
+						<ul class="product_view">
+							<li id="view_grid" data-view="grid" class="active">
+								<i class="fa fa-th" aria-hidden="true"></i>
+							</li>
+							<li id="view_list" data-view="list">
+								<i class="fa fa-th-list" aria-hidden="true"></i>
+							</li>
+						</ul>
+						<div class="product_options__sort">
+							<label for="sort_by_select">Sort by:</label>
+
+							<select id="sort_by_select">
+								<option value="manual">Featured</option>
+								<option value="best-selling">Best Selling</option>
+								<option value="title-ascending">Name: A – Z</option>
+								<option value="title-descending">Name: Z – A</option>
+								<option value="price-ascending">Price: low to high</option>
+								<option value="price-descending">Price: high to low</option>
+								<option value="created-ascending">Oldest to newest</option>
+								<option value="created-descending">Newest to oldest</option>
+							</select>
+						</div>
+
+						<div class="product_options__number">
+							<label for="products_number_select">Show:</label>
+							<select id="products_number_select">
+
+								<option value="6">6</option>
+								<option value="9">9</option>
+								<option value="12">12</option>
+
+
+
+							</select>
+						</div>
+
+						<div class="product_count">10 items</div>
+						<div class="clearfix"></div>
+					</div>
+
+
+
+
+					<script>
+
+						theme.paginationTypeLoad = false;
+
+
+						theme.paginationCurrent = 1;
+						theme.paginatePages = 2;
+						theme.productNumber = 9;
+
+
+						theme.collectionName = 'teens-clothing';
+
+					</script>
+
+					<div class="row product_listing__main layout__medium_sb" id="product_listing__sorted">
+					@foreach (var product in (List<Product>)ViewBag.products)
+					{
+						<div class="col-sm-4 ">
+
+							<div class="product_item">
+								<div class="product_img">
+									<a class="img_change"
+									   href="teens-clothing/products/classic-fit-three-piece-check-suit.html">
+										<img height="100%" width="100%" class="img__1" style="border-radius:15px"
+											 src="~/Assets/Uploads/@product.Image"
+											 alt="Classic Fit Three-Piece Check Suit">
+
+										<img height="100%" width="100%" class="img__2" style="border-radius:15px"
+											 src="~/Assets/Uploads/@product.Image2"
+											 alt="Classic Fit Three-Piece Check Suit" />
+									</a>
+								</div>
+
+								<div class="product_info">
+									<p class="product_name">
+
+										<a href="teens-clothing/products/classic-fit-three-piece-check-suit.html">
+											@product.Name
+										</a>
+
+									</p>
+
+
+									<p class="product_desc product_desc__short">
+										@product.Description
+									</p>
+									<p class="product_desc product_desc__long">
+										@product.Description
+									</p>
+
+
+									<div class="product_prop">
+										<p class="product_price">
+
+
+
+											<span class="money">@product.Price EG</span>
+
+
+
+										</p>
+
+										<p class="product_color">
+											<span class="color_options"
+												  style="background-color: Gray;" title="Gray"></span><span class="color_options" style="background-color: Black;"
+																											title="Black"></span><span class="color_options"
+																																	   style="background-color: Brown;" title="Brown"></span>
+										</p>
+									</div>
+
+									<div class="product_links">
+										<form method="get" asp-controller="Products" asp-action="Edit" asp-route-Id ="@product.Id"
+											  class="add_to_cart_form">
+
+
+											<button type="submit" class="btn btn-outline-info"
+											   >
+												Modify
+											</button>
+											<button asp-action="Delete" asp-route-Id="@product.Id" class="btn btn-danger"
+											   >
+												Delete
+											</button>
+
+
+										</form>
+
+
+
+
+
+
+										<a class="wishlist_btn wishlist_add_login" href="#"
+										   title="Add to the wishlist">
+											<i class="fa fa-heart-o"
+											   aria-hidden="true"></i>
+										</a>
+
+
+
+										<a class="quick_view_btn"
+										   href="../products/classic-fit-three-piece-check-suit.html"
+										   title="Quick view">
+											<i class="fa fa-search-plus"
+											   aria-hidden="true"></i>
+										</a>
+									</div>
+								</div>
+
+								<div class="clearfix"></div>
+							</div>
+
+						</div>
+					}
+					
+
+						
+
+					</div>
+
+
+
+
+					<div class="pagination">
+
+
+
+
+
+
+						<p>1 – 9 product(s) of 10</p>
+
+
+						<ul>
+							<li class="pagination_prev">
+
+								<span><i class="fa fa-angle-left" aria-hidden="true"></i>Previous</span>
+
+							</li>
+
+
+
+
+							<li class="pagination_current"><span>1</span></li>
+
+
+
+
+							<li><a href="teens-clothing4658.html?page=2">2</a></li>
+
+
+
+							<li class="pagination_next">
+
+								<a href="teens-clothing4658.html?page=2">
+									Next<i class="fa fa-angle-right"
+										   aria-hidden="true"></i>
+								</a>
+
+							</li>
+						</ul>
+
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+				</div>
+
+
+			</div>
+
+
+			<div class="sidebar_small col-sm-3  col-sm-pull-9">
+
+				<div id="shopify-section-sidebar" class="shopify-section page_sidebar">
+					<div class="sidebar">
+
+
+						<div class="sidebar_widget sidebar_widget__linklist">
+							<h3 class="widget_header">Collections</h3>
+
+							<div class="widget_content">
+								<ul class="list_links">
+
+
+
+
+									<li class="level_1__item ">
+										<a class="level_1__link" href="frontpage.html">Men’s clothing</a>
+
+
+									</li>
+
+
+
+
+									<li class="level_1__item ">
+										<a class="level_1__link" href="women-s-clothing.html">
+											Women’s
+											clothing
+										</a>
+
+
+									</li>
+
+
+
+
+									<li class="level_1__item ">
+										<a class="level_1__link" href="teens-clothing.html">Teens clothing</a>
+
+
+									</li>
+
+
+
+
+									<li class="level_1__item ">
+										<a class="level_1__link" href="frontpage.html">Children's clothing</a>
+
+
+									</li>
+
+
+
+
+									<li class="level_1__item ">
+										<a class="level_1__link" href="sale.html">Sportswear</a>
+
+
+									</li>
+
+
+
+
+									<li class="level_1__item ">
+										<a class="level_1__link" href="t-shirts.html">Uniforms</a>
+
+
+									</li>
+
+
+
+
+									<li class="level_1__item ">
+										<a class="level_1__link" href="teens-clothing.html">Ethnic</a>
+
+
+									</li>
+
+
+
+
+									<li class="level_1__item ">
+										<a class="level_1__link" href="women-s-clothing.html">Vintage</a>
+
+
+									</li>
+
+
+
+
+									<li class="level_1__item ">
+										<a class="level_1__link" href="frontpage.html">Hats & Caps</a>
+
+
+									</li>
+
+
+
+
+									<li class="level_1__item ">
+										<a class="level_1__link" href="t-shirts.html">T-shirts</a>
+
+
+									</li>
+
+
+
+
+									<li class="level_1__item ">
+										<a class="level_1__link" href="sale.html">Footwear</a>
+
+
+									</li>
+
+
+
+
+									<li class="level_1__item ">
+										<a class="level_1__link" href="women-s-clothing.html">Overcoats</a>
+
+
+									</li>
+
+
+								</ul>
+							</div>
+						</div>
+
+
+
+					</div>
+
+
+
+
+
+
+				</div>
+				<div id="shopify-section-sidebar-sort" class="shopify-section page_sidebar_sort sidebar_widget">
+					<div class="section_filter_block">
+
+
+						<div class="name_sort_block">
+							<h3 class="widget_header">Size</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+							<a class="name_sort_item" href="all/l.html">L</a>
+
+
+
+
+
+							<a class="name_sort_item" href="all/xl.html">XL</a>
+
+
+
+
+
+							<a class="name_sort_item" href="all/xxl.html">XXL</a>
+
+
+
+						</div>
+
+
+
+						<div class="color_sort_block">
+							<h3 class="widget_header">Color</h3>
+
+
+
+
+							<a class="color_sort_item" href="all/black.html" title="Black"
+							   style="background-color: #000000;"></a>
+
+
+
+
+
+
+							<a class="color_sort_item" href="all/gray.html" title="Gray"
+							   style="background-color: #bdbdbd;"></a>
+
+
+
+
+
+
+							<a class="color_sort_item" href="all/red.html" title="Red"
+							   style="background-color: #de5050;"></a>
+
+
+
+
+
+
+							<a class="color_sort_item" href="all/olive.html" title="Olive"
+							   style="background-color: #cda472;"></a>
+
+
+
+
+
+
+							<a class="color_sort_item" href="all/index.html" title="Green"
+							   style="background-color: #25901a;"></a>
+
+
+
+
+
+
+							<a class="color_sort_item" href="all/brown.html" title="Brown"
+							   style="background-color: #864809;"></a>
+
+
+
+
+
+
+							<a class="color_sort_item" href="all/beige.html" title="Beige"
+							   style="background-color: #ebddc5;"></a>
+
+
+
+
+
+
+							<a class="color_sort_item" href="all/blue.html" title="Blue"
+							   style="background-color: #4351ca;"></a>
+
+
+
+
+
+
+							<a class="color_sort_item" href="all/darkblue.html" title="DarkBlue"
+							   style="background-color: #190790;"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+						</div>
+
+					</div>
+
+
+
+
+
+
+
+
+				</div>
+				<div id="shopify-section-sidebar-ensuing" class="shopify-section page_sidebar">
+					<div class="sidebar">
+
+
+
+
+						<div class="sidebar_widget sidebar_widget__banner">
+
+							<div class="img_placeholder__wrap img_placeholder__large"
+								 style="background-image: url( ../cdn/shop/files/image01_270x360_crop_center5d8b.jpg?v=1614290117);">
+							</div>
+
+
+							<div class="sidebar_banner_caption">
+
+								<a href="sale.html">
+
+
+
+									<h3>NEW COLLECTION</h3>
+
+
+
+									<p>OF FASHION CLOTHES</p>
+
+
+
+								</a>
+
+							</div>
+						</div>
+
+
+
+
+
+						<div class="sidebar_widget sidebar_widget__products">
+							<h3 class="widget_header">Products</h3>
+							<div class="widget_content">
+								<ul class="list_products">
+
+									<li class="product">
+										<div class="product_img">
+											<a href="../products/bing-trim-fit-cotton-jersey-polo.html">
+												<img src="../cdn/shop/products/bing_trim_fit_cotton_jersey_polo_1_150x150_crop_centerb498.jpg?v=1553073349"
+													 alt="Bing&#39; Trim Fit Cotton Jersey Polo" />
+											</a>
+										</div>
+
+										<div class="product_info">
+											<div class="product_name">
+												<a href="../products/bing-trim-fit-cotton-jersey-polo.html">
+													Bing'
+													Trim Fit Cotton Jerse...
+												</a>
+											</div>
+
+											<div class="product_price">
+												<span class="money">$285.00</span>
+
+												<span class="money compare-at-price">$295.00</span>
+
+											</div>
+
+											<div class="product_links">
+												<a class="btn"
+												   href="../products/bing-trim-fit-cotton-jersey-polo.html">View</a>
+											</div>
+										</div>
+									</li>
+
+									<li class="product">
+										<div class="product_img">
+											<a href="teens-clothing/products/crewneck-sicoca-silk-blend-sweater.html">
+												<img src="../cdn/shop/products/crewneck_sicoca_silk_blend_sweater_1_150x150_crop_centerdf46.jpg?v=1553073338"
+													 alt="Crewneck &#39;Sicoca&#39; Silk Blend Sweater" />
+											</a>
+										</div>
+
+										<div class="product_info">
+											<div class="product_name">
+												<a href="teens-clothing/products/crewneck-sicoca-silk-blend-sweater.html">
+													Crewneck
+													'Sicoca' Silk Blen...
+												</a>
+											</div>
+
+											<div class="product_price">
+												<span class="money">$110.00</span>
+
+												<span class="money compare-at-price">$120.00</span>
+
+											</div>
+
+											<div class="product_links">
+												<a class="btn"
+												   href="teens-clothing/products/crewneck-sicoca-silk-blend-sweater.html">View</a>
+											</div>
+										</div>
+									</li>
+
+									<li class="product">
+										<div class="product_img">
+											<a href="teens-clothing/products/illusion-yoke-lace-sheath-dress.html">
+												<img src="../cdn/shop/products/illusion_yoke_lace_sheath_dress_1_150x150_crop_centerccac.jpg?v=1553073332"
+													 alt="Illusion Yoke Lace Sheath Dress" />
+											</a>
+										</div>
+
+										<div class="product_info">
+											<div class="product_name">
+												<a href="teens-clothing/products/illusion-yoke-lace-sheath-dress.html">
+													Illusion
+													Yoke Lace Sheath D...
+												</a>
+											</div>
+
+											<div class="product_price">
+												<span class="money">$80.00</span>
+
+												<span class="money compare-at-price">$88.00</span>
+
+											</div>
+
+											<div class="product_links">
+												<a class="btn"
+												   href="teens-clothing/products/illusion-yoke-lace-sheath-dress.html">View</a>
+											</div>
+										</div>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+
+
+
+
+
+					</div>
+
+
+
+
+				</div>
+
+			</div>
+
+
+		</div>
+	</div>
+
+
+<a id="back_top" href="#">
+	<i class="fa fa-angle-up" aria-hidden="true"></i>
+</a>
